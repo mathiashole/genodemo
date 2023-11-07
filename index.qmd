@@ -7,7 +7,7 @@ format:
     theme: [serif, theme/styles.scss]
     slide-number: c/t
     logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
-    footer: "[https://github.com/mathiashole](https://github.com/mathiashole)"
+    footer: "[https://github.com/mathiashole/genodemo](https://github.com/mathiashole/genodemo)"
     code-copy: true
     center-title-slide: false
     include-in-header: heading-meta.html
@@ -466,7 +466,7 @@ cat("\n\nEl índice de eveness:", equidad, "\n")
 
 -   [quarto.org](https://quarto.org/)
 
-<br> code at {{< fa brands github size=2x1 >}} <https://github.com/mathiashole>
+<br> code at {{< fa brands github size=2x1 >}} <https://github.com/mathiashole/genodemo>
 
 ::: author
 Mathias Mangino<br> Customer Success, RStudio<br>
