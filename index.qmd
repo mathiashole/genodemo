@@ -1,0 +1,473 @@
+---
+date: "`r as.Date(Sys.time())`"
+format:
+  revealjs:
+    chalkboard: true
+    scrollable: true
+    theme: [serif, theme/styles.scss]
+    slide-number: c/t
+    logo: "https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-Flat.png"
+    footer: "[https://github.com/mathiashole](https://github.com/mathiashole)"
+    code-copy: true
+    center-title-slide: false
+    include-in-header: heading-meta.html
+    code-link: true
+    code-overflow: wrap
+    highlight-style: a11y
+    height: 1080
+    width: 1920
+    link-external-newwindow: true
+execute: 
+  eval: true
+  echo: true
+editor_options: 
+  chunk_output_type: console
+---
+
+#  {transition="slide" transition-speed="slow"}
+
+::: title-center
+Bacterial diversity patterns of the intertidal bioﬁlm in urban beaches of Río de la Plata
+:::
+
+::: center
+here is R once again being useful
+:::
+
+::: half-image
+![](www/fcien_udelar.png){fig-align="center"}
+:::
+
+::: author
+Mathias Mangino<br> Customer Success, RStudio<br>
+:::
+
+::: credit
+(Piccini & García-Alonso, 2015)
+:::
+
+# Estuarios {transition="slide" transition-speed="slow"}
+
+<br>
+
+. . .
+
+Ecosistemas únicos
+
+:   Son `áreas costeras` donde hay `agua dulce` de ríos y escorrentías y estas se mezclan con el `agua salada` del océano.
+
+. . .
+
+<br>Actúan como sumidero para contaminantes
+
+:   Los `estuarios`, caracterizados por su `abundancia de sedimentos y materiales orgánicos`, teniendo un rol preponderante para la `identificación` de posibles `especies bioindicadoras` y `biomarcadores de contaminación`.
+
+. . .
+
+<br>Variabilidad en características fisicoquímicas
+
+:   `Oxígeno, temperatura y salinidad`, por lo que se los consideran `ecosistemas` naturalmente `estresados`. Consecuentemente, la `biota` está bien `adaptada` para hacer frente a este ambiente, pudiendo ser considerada como resistente.
+
+## Rol preponderante de los microorganismos en los ecosistemas {transition="slide" transition-speed="slow"}
+
+::: incremental
+-   En los estuarios, los procesos microbianos desempeñan un papel preponderante en:
+    -   `Remineralización de nutrientes` (por ejemplo, descomposición de materia orgánica).
+    -   `Producción primaria` (como la fotosíntesis).
+    -   `Procesos geoquímicos` (por ejemplo, ciclos de nutrientes como el nitrógeno y el fósforo).
+    -   `Procesos biológicos` (simbiosis entre los microorganismos).
+
+<br>
+
+-   En particular, los `microorganismos intermareales crean microentornos protectores` que influyen en diversos procesos y `afectan` positivamente a todo el `ecosistema`.
+:::
+
+## Río de la Plata {transition="slide" transition-speed="slow"}
+
+::: columns
+::: {.column width="40%"}
+::: incremental
+-   El Río de la Plata es un `estuario` importante en la `costa atlántica de Sudamérica`.
+    -   Sustenta valiosas `pesquerías en Uruguay y Argentina`, además de ser una `fuente de recreación`.
+    -   En la `zona costera de Montevideo` comprende uno de los `puerto mas contaminante` de la region.
+    -   Las `comunidades microbentónicas` en el Río de la Plata se ven `afectadas por factores humanos, conductividad y turbidez`.
+:::
+:::
+
+::: {.column width="60%"}
+![](www/rio_de_la_plata.jpg)
+:::
+:::
+
+## Río de la Plata {transition="slide" transition-speed="slow"}
+
+::: columns
+::: {.column width="50%"}
+::: incremental
+-   Recientemente ha evidenciado:
+    -   En las `comunidades de bacterioplancton`, la `abundancia y diversidad` son más `altas` donde los `ríos Paraná y Uruguay se mezclan` con el `Océano Atlántico`.
+    -   Se identifican `ensamblajes bacterianos específicos` de las condiciones `estuariales` dinámicas.
+    -   La `influencia antropogónica` es `relevante en la distribución` de las especies microbentónicas.
+:::
+:::
+
+::: {.column width="50%"}
+
+![](www/rio_de_la_plata.jpg)
+
+:::
+:::
+
+## Objetivo de este trabajo {transition="slide" transition-speed="slow"}
+
+<br> <br>
+
+. . .
+
+#### En este estudio, se proponen `analizar la composición de la comunidad del biofilm intermareal` en las `playas urbanas` del `Río de la Plata` y en relacion a `factores fisicoquímicos`, como salinidad, temperatura, pH y oxígeno disuelto.
+
+. . .
+
+## Metodología {.title-center transition="slide" transition-speed="slow" background-color="black"}
+
+# Sitio de muestreo {transition="slide" transition-speed="slow"}
+
+::: columns
+::: {.column width="50%"}
+![](www/site.jpg){fig-alt="icons for Quarto, gt, and gtExtras" width="900" height="400"}
+
+::: incremental
+- Los parámetros fisicoquímicos se midieron *in situ* (temperatura, conductividad, pH y oxígeno disuelto), además del fósforo total en sedimentos como indicador de impacto urbano.
+:::
+:::
+
+::: {.column width="50%"}
+::: incremental
+-   `Bahia de Montevideo` (Playa `muy contaminada` con refinería de petróleo, vertidos domésticos e industriales)
+-   `Santa Catalina` (Playa con actividades de `pesca artesanal y recreación`)
+-   `Pocitos` (Playa urbana con actividad de `recreacion`)
+-   `Penino` (Playa de `bajo impacto antropogenico`)
+
+:::
+:::
+::: incremental
+-   Se hicieron `tres réplicas` separadas por `25 m` de muestras de `biofilm y sedimentos óxicos` de superficie de 5 mm, `recolectados en marea baja`.
+:::
+:::
+
+## Secuenciación con tecnologia 454 de pirosecuenciacion {transition="slide" transition-speed="slow"}
+
+::: columns
+::: {.column width="50%"}
+
+![](www/454.png){width="80%"}
+(Jarvie & Harkins, 2008)
+
+:::
+
+::: {.column width="50%"}
+::: incremental
+
+Preparación de la muestra
+
+:   `Amplificación` mediante `PCR del 16S` a partir de las muestras de ADN total, obteniendo gran cantidad de copias. Este `ADN es fragmentado` y a estos fragmento se le `ligan adaptadores`
+
+Preparacion de Microesferas
+
+:   Los `adaptadores de los fragmentos` se `uniran` a `adaptadores` complementarios de las `microesferas`, luego `se amplifican por PCR` el ADN enparejado de cada esfera.
+
+Secuenciación por pirosecuenciación
+
+:   Se agregan `nucleótidos marcados con colores`, a medida que se `incorporan nucleotidos` a la cadena de `ADN`, se `libera pirofosfato y se produce luz del color` correspondiente.
+
+Registro de señales
+
+:   Un sistema de detección `captura los destellos y registra el color en un archivo de datos`, lo que se traduce en la `secuencia de ADN`.
+:::
+:::
+:::
+
+
+## Análisis de la diversidad y de la estructura comunitaria {transition="slide" transition-speed="slow"}
+
+::: incremental
+
+`Se uso el pipeline RDP`
+
+* El pipeline define las OTU
+  -   `Unidades taxonómicas operativas (OTU)`
+  -   El pipeline `recorta` y `elimina` las `secuencias de mala calidad`, las secuencias se alinean y agrupan en `clústeres` compartiendo un `97% de similitud` entre si. ---\> [Tutorial del pipeline RDP](https://john-quensen.com/workshops/workshop-2/command-line-rdp-pipeline/).
+  -   Los números de lecturas por OTU en cada muestra `se normalizaron` por tamaño total de muestra.
+  -   Para `definir secuencias representativa` dentro de una OTU e `interacciones` entre secuencias de `diferentes OTU` se usa la distancia entre el `% de identidad` que `minimiza` la suma del cuadrados.
+-   OTU \<= 0.1% `muy rara`
+-   OTU \> 0.1% \<= 1% `rara`
+-   OTU \> 1% `abundante`
+
+:::
+
+## Análisis estadísticos {transition="slide" transition-speed="slow"}
+
+::: incremental
+
+* Software
+  - `GraphPad Prism` version 5.0 <https://www.graphpad.com/> <br> `PAST` <https://www.nhm.uio.no/english/research/resources/past/>
+
+* Estadísticos
+
+  - Test de Kelmogorov-Smirnov
+  - `No parametricas` (test de U de Mann-Whitney y Kruskal-Wallis) para evaluar diferencias en sus distribuciones
+  - `Parametricos` (test de ANOVA) para evaluar diferencias en sus distribuciones
+  - Post hoc test de Bonferroni `ajustar el nivel de significancia` para `evitar` que se acumule un alto riesgo de `error de tipo I` 
+  - Se hizo analisis de principales componentes `(PCA)` en las variables ambientales. PCA `reduce la dimensionalidad` de los datos complejos, creando nuevas variables "`componentes principales`" (`capturando toda la variabilidad`).
+
+:::
+
+
+## Diversidad biológica {transition="slide" transition-speed="slow"}
+
+::: panel-tabset
+### Curvas de rarefacción
+
+::: incremental
+
+- La `curva de rarefacción` en ecología microbiana se utiliza para `evaluar la diversidad de especies microbianas` en una muestra y `determinar` si se han `secuenciado suficientes` secuencias `para capturar la mayoría de las OTU` (Operational Taxonomic Units) presentes. 
+- `Ayuda a estimar` si se ha `muestreado adecuadamente la diversidad microbiana` o si se requieren `más secuencias` para una representación más completa.
+
+:::
+
+![](www/otu_example.png){width="30%" fig-align="center"}
+
+### índices de Chao1
+
+$Chao1 = S_{obs} + \frac{{n_1^2}}{{2n_2}}$
+
+<br>
+
+```{R}
+# Datos de abundancia de especies
+abundancia_especies <- c(10, 5, 6, 2, 1, 1, 1)
+
+# Calcular el número observado de especies
+S_obs <- sum(abundancia_especies > 0)
+
+# Calcular n1 y n2
+n1 <- sum(abundancia_especies == 1)
+n2 <- sum(abundancia_especies == 2)
+
+# Calcular el índice de Chao1
+Chao1 <- S_obs + (n1^2) / (2 * n2)
+
+# Imprimir el resultado
+cat("\n\nÍndice de Chao1:", Chao1, "\n")
+
+```
+
+### índices de Shannon
+
+$H' = -\sum_{i=1}^{S} p_i \ln(p_i)$
+
+<br>
+
+```{R}
+
+# Ejemplo de datos de abundancia de especies
+abundancia <- c(10, 5, 6, 2, 1, 1, 1)
+
+# Calcular la proporción de cada especie
+proporciones <- abundancia / sum(abundancia)
+
+# Calcular el índice de Shannon
+shannon <- -sum(proporciones * log(proporciones))
+
+# Imprimir el resultado
+cat("\n\nEl índice de Shannon es:", shannon, "\n")
+
+```
+
+### índice de eveness
+
+$E = \frac{H'}{\ln(S)}$
+
+<br>
+
+```{R}
+# Ejemplo de datos de abundancia de especies
+abundancia <- c(10, 5, 6, 2, 1, 1, 1)
+
+# Calcular la proporción de cada especie
+proporciones <- abundancia / sum(abundancia)
+
+# Calcular el índice de Shannon
+shannon <- -sum(proporciones * log(proporciones))
+
+# Calcular el índice de equidad de Pielou (J')
+equidad <- shannon / log(length(abundancia))
+
+# Imprimir el resultado
+cat("\n\nEl índice de eveness:", equidad, "\n")
+
+```
+:::
+
+## Resultados y discusion {.title-center transition="slide" transition-speed="slow" background-color="black"}
+
+## Características fisicoquímicas {transition="slide" transition-speed="slow"}
+
+::: columns
+::: {.column width="50%"}
+![](www/env.png){fig-alt="icons for Quarto, gt, and gtExtras" width="800" height="600"}
+:::
+
+::: {.column width="50%"}
+
+::: incremental
+
+- En cuanto el `pH no se observan diferencias`, los valores `más bajos` se dan en la `Bahía de Montevideo` y `más altos` para `Penino` 
+- La `Bahía de Montevideo` se observan valores `más bajos` para `salinidad` y `oxigeno disuelto`
+- En `Pocitos` mostró el `mayor valor de salinidad`
+- El `fósforo total en Santa Catalina fue significativamente más alto` que en los otros sitios. En la bahia de Montevideo y Pocitos también mostraron niveles altos y Penino fue el sitio con la concentración más baja 
+
+:::
+
+:::
+
+:::
+
+## Análisis estadísticos {transition="slide" transition-speed="slow"}
+
+:::: columns
+::: {.column width="50%"}
+
+![](www/OTU_tab.png){fig-alt="icons for Quarto, gt, and gtExtras" width="800" height="700"} 
+:::
+
+::: {.column width="50%"}
+
+::: incremental
+- El índice `Chao1` y los índices de `Shannon no mostraron diferencias significativas`.
+- El `índice de eveness` es `mayor para Montevideo` en comparación con `Peninos`.
+- `A pesar del alto impacto`, las muestras de `sedimentos` presentaron una `alta diversidad bacteriana`, respaldada por el índice de `Shannon`.
+- `No existio gran diferencia` entre Las `OTU` consideraron `raras`. En Penino, Santa Catalina y Pocitos, representan entre el 13% y el 18% de las OTU, siendo `menos abundante en Montevideo`.
+- `Bahia de Montevideo exhibe la mayor diversidad en las OTU` consideradas como `abundantes`.
+- Estas `tres categorías` permitieron una clara `discriminación` entre la `bahía de Montevideo` y las `demás muestras`.
+
+:::
+:::
+::::
+
+## curva {transition="slide" transition-speed="slow"}
+
+:::: columns
+::: {.column width="60%"}
+
+::: incremental
+- Las `curvas de rarefacción indican` que, a la `profundidad filogenética utilizada` (nivel de especies), el `esfuerzo de secuenciación no fue suficiente` para capturar toda la `diversidad` de estas comunidades, ya que las `curvas no convergen` a medida que aumenta el tamaño de la muestra.
+<br>
+* Puede atribuirse a:
+  - Procesos previos o durante la secuenciación.
+  - Estrategias de análisis bioinformático. 
+  
+:::
+:::
+
+::: {.column width="40%"}
+![](www/supp.png){width="700" height="450"}
+
+:::
+::::
+
+## Relación entre la diversidad estimada por Shannon y la Salinidad {transition="slide" transition-speed="slow"}
+
+:::: columns
+::: {.column width="40%"}
+
+![](www/OTU_relation.png){fig-alt="icons for Quarto, gt, and gtExtras" width="700" height="700"}
+:::
+
+::: {.column width="60%"}
+
+::: incremental
+- `Muestras con salinidades extremas` (bahia de Montevideo y Pocitos) revelaron `mayores niveles de diversidad`.
+- `Esto sugiere` que las condiciones de `salinidad extrema` influyen en la `biodiversidad`.
+- Por lo que la `salinidad puede tener un papel en la estructura de las comunidades bacterianas de sedimentos`, ya que estos sitios mostraron mayor diversidad.
+:::
+
+:::
+::::
+
+
+## Análisis estadísticos {transition="slide" transition-speed="slow"}
+
+:::: columns
+::: {.column width="50%"}
+
+::: incremental
+- El `análisis de beta-diversidad`, que combina escalamiento multidimensional no métrico y la agrupación basada en Bray-Curtis, `discriminó las muestras de la Bahía de Montevideo del resto`.
+- Las muestras de `Pocitos y Santa Catalina mostraron similitudes` entre sí y se `diferenciaron de Penino`, posiblemente `debido a la salinidad`.
+
+- Sin embargo, al utilizar el `PC1 que resume la variación ambiental entre los sitios` y realizar regresiones, `no se encontraron relaciones significativas` con la `diversidad bacteriana`.
+:::
+
+:::
+::: {.column width="50%"}
+
+![](www/axis.png){fig-alt="icons for Quarto, gt, and gtExtras" width="700" height="700"} 
+:::
+::::
+
+
+## Composición de las comunidades bacterianas {transition="slide" transition-speed="slow"}
+
+:::: columns
+::: {.column width="35%"}
+
+![](www/bar_plot.png){.border fig-alt="icons for Quarto, gt, and gtExtras" width="600" height="500"}
+
+:::
+
+::: {.column width="65%"}
+
+::: incremental
+- Actinobacterias: `Menos abundantes y sin cambios significativos` entre los sitios de muestreo.
+- Bacteroidetes: `Significativamente más altos en la Bahía de Montevideo`, y se asocian comúnmente con alta `turbidez en los estuarios`.
+- Deltaproteobacteria: `Menos abundantes` en general, con valores `más altos` en `Pocitos y Penino`, posiblemente relacionados con el `fósforo total`.
+- Gammaproteobacteria: Mayor abundancia en `Santa Catalina y Pocitos`.
+- Betaprotebacterianas: `Significativamente más abundantes en la Bahía de Montevideo`, alcanzando hasta un `20%` de abundancia.
+- Alphaproteobacteria: `Significativamente más altas en la Bahía de Montevideo y Pocitos`, con informes previos de su presencia en el `Río de la Plata y lagunas costeras del océano Atlántico`.
+:::
+
+:::
+::::
+
+## Comunidades bacterianas {transition="slide" transition-speed="slow"}
+
+::: incremental
+* Se identificaron las OTU clave como posibles `bioindicadores` y verificaron su `identidad taxonómica` mediante el `pipeline RDP`.
+  - `Cuatro géneros identificados`: Thauera, Gaetbulibacter, Algoriphagus y Muriicola.
+  - `Tres géneros exclusivos de la Bahía de Montevideo`, destacando `Thauera` (`4%` de la comunidad).
+  - `Muriicola`, común en ambientes costeros, fue `OTU abundante` (más del `2% de la abundancia relativa`). `Bacteroidetes` puede `no` ser un `buen indicador de impacto antropogénico`.
+  - Enfatizan en la abundancia de `OTUs de Thauera` y recomendamos `investigaciones adicionales` sobre su uso como bioindicador.
+
+<br>
+
+* `Hipotetizaron que los biofilms intermareales albergan OTU raras`, constituyendo un `banco de semillas adaptado` a las condiciones cambiantes del `estuario`.
+
+:::
+
+## Conclusion {.title-center transition="slide" transition-speed="slow" background-color="black"}
+
+## Conclusion {transition="slide" transition-speed="slow"}
+
+-   Se `evaluó por primera vez la composición de la comunidad bacteriana de biofilms intermareales` en playas urbanas de Río de la Plata.
+-   Los `ensamblajes bacteriano` parecía estar estructurado principalmente por la `salinidad`, y el `impacto antropogático` también podrían haber desempeñado un papel relevante.
+-   El `oxígeno disuelto` parecía ser uno de los `factores explicativo` a la `estructura de la comunidad`, particularmente en la `bahía de Montevideo` (refinería de petróleo y aguas residuales domésticas).
+
+# Gracias
+
+-   [quarto.org](https://quarto.org/)
+
+<br> code at {{< fa brands github size=2x1 >}} <https://github.com/mathiashole>
+
+::: author
+Mathias Mangino<br> Customer Success, RStudio<br>
+:::
