@@ -333,7 +333,7 @@ cat("\n\nEl índice de eveness:", equidad, "\n")
 
 :::
 
-## Análisis estadísticos {transition="slide" transition-speed="slow"}
+## Análisis de diversidad {transition="slide" transition-speed="slow"}
 
 :::: columns
 ::: {.column width="50%"}
@@ -355,7 +355,7 @@ cat("\n\nEl índice de eveness:", equidad, "\n")
 :::
 ::::
 
-## curva {transition="slide" transition-speed="slow"}
+## Curvas de rarefacción {transition="slide" transition-speed="slow"}
 
 :::: columns
 ::: {.column width="60%"}
@@ -396,7 +396,7 @@ cat("\n\nEl índice de eveness:", equidad, "\n")
 ::::
 
 
-## Análisis estadísticos {transition="slide" transition-speed="slow"}
+## Análisis de beta-diversidad {transition="slide" transition-speed="slow"}
 
 :::: columns
 ::: {.column width="50%"}
@@ -439,7 +439,7 @@ cat("\n\nEl índice de eveness:", equidad, "\n")
 :::
 ::::
 
-## Comunidades bacterianas {transition="slide" transition-speed="slow"}
+## Bioindicadores {transition="slide" transition-speed="slow"}
 
 ::: incremental
 * Se identificaron las OTU clave como posibles `bioindicadores` y verificaron su `identidad taxonómica` mediante el `pipeline RDP`.
